@@ -31,22 +31,20 @@ class Travel extends Model
 
     /**
      * Return the sluggable configuration array for this model.
-     *
-     * @return array
      */
     public function sluggable(): array
     {
         return [
             'slug' => [
-                'source' => 'name'
-            ]
+                'source' => 'name',
+            ],
         ];
     }
 
     public function numberOfNights(): Attribute
     {
         return Attribute::make(
-            get: fn($value, $attributes) => $attributes['number_of_days'] - 1,
+            get: fn ($value, $attributes) => $attributes['number_of_days'] - 1,
         );
     }
 }
